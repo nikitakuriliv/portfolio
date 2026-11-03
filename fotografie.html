@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fotografie – Nikita Kuriliv | Event-, Portrait- &amp; Architekturfotografie</title>
+  <meta name="description" content="Fotogalerie von Nikita Kuriliv – Eventfotografie, Portraits, Architektur und Reise-/Landschaftsmomente.">
+  <style>
+    :root {
+      --bg: #0b0b0f; --surface: #14141a; --surface-2: #1b1b23; --border: #2a2a35;
+      --text: #f2f2f5; --muted: #a0a0ae; --accent: #d94f6b; --link: #8b7ef5;
+      --accent-solid: #c8405c;
+      --accent-solid-hover: #b7334f; --radius: 14px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    body { font-size: 1rem; }
+    a { color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    header { position: sticky; top: 0; z-index: 50; background: rgba(11,11,15,.8); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-weight: 700; font-size: 1.05rem; letter-spacing: .02em; text-decoration: none; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: .92rem; padding: 8px 14px; border-radius: 999px; transition: color .2s, background .2s; }
+    .nav-links a:hover { color: var(--text); background: var(--surface-2); }
+    .nav-links a.active { color: var(--text); }
+    @media (max-width: 640px) { .nav-links a { padding: 8px 10px; font-size: .82rem; } }
+
+    .hero { padding: 64px 0 48px; }
+    .kicker { display: inline-block; font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(217,79,107,.35); padding: 6px 16px; border-radius: 999px; margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.15; background: linear-gradient(120deg, #fff 40%, var(--link)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { color: var(--muted); margin-top: 16px; max-width: 640px; }
+    .cat-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .cat-nav a { text-decoration: none; font-size: .88rem; color: var(--muted); border: 1px solid var(--border); background: var(--surface); padding: 9px 18px; border-radius: 999px; transition: color .2s, border-color .2s; }
+    .cat-nav a:hover { color: var(--text); border-color: #3c3c4a; }
+    .cat-nav a span { color: var(--link); font-weight: 700; font-variant-numeric: tabular-nums; }
+
+    section { padding: 56px 0; }
+    section + section { border-top: 1px solid var(--border); }
+    .section-head { margin-bottom: 32px; }
+    .section-head h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -.01em; }
+    .section-head p { color: var(--muted); margin-top: 6px; max-width: 640px; font-size: .97rem; }
+
+    .masonry { columns: 3; column-gap: 14px; }
+    @media (max-width: 900px) { .masonry { columns: 2; } }
+    @media (max-width: 560px) { .masonry { columns: 1; } }
+    .masonry figure { margin: 0 0 14px; break-inside: avoid; }
+    .masonry img { display: block; width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--border); transition: transform .25s ease, border-color .25s ease; cursor: zoom-in; }
+    .masonry img:hover { transform: scale(1.015); border-color: #3c3c4a; }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 0; color: var(--muted); font-size: .85rem; }
+    footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+    .lightbox { position: fixed; inset: 0; z-index: 100; display: none; background: rgba(0,0,0,.92); cursor: zoom-out; align-items: center; justify-content: center; }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 92vw; max-height: 92vh; border-radius: 8px; object-fit: contain; }
+    .lightbox .close { position: absolute; top: 20px; right: 28px; font-size: 2rem; color: #fff; background: none; border: none; cursor: pointer; line-height: 1; }
+  
+    /* ---- Typo- & Farbsystem (better-typography / better-colors) ---- */
+    h1, h2, h3, h4 { text-wrap: balance; }
+    p { text-wrap: pretty; }
+    .section-head h2, .contact h2 { line-height: 1.2; }
+    .sub h3, .video-card h4 { line-height: 1.3; }
+    .tag { white-space: nowrap; }
+    ::selection { background: var(--accent-solid); color: #fff; }
+    :is(a, button, input, select, textarea):focus-visible {
+      outline: 2px solid var(--link); outline-offset: 2px; border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="index.html">Nikita<span>.</span>Kuriliv</a>
+      <div class="nav-links">
+        <a href="index.html">Start</a>
+        <a href="index.html#design">Design</a>
+        <a href="fotografie.html" class="active">Fotografie</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="hero">
+    <span class="kicker">Fotografie</span>
+    <h1>Momente, die bleiben.</h1>
+    <p>Bühne, Portraits, Gebäude und Landschaften — vier Blickwinkel, eine Handschrift. Alle Fotos entstanden bei echten Anlässen und auf Reisen.</p>
+    <div class="cat-nav">
+      <a href="#event">Event-Fotografie <span>67</span></a>
+      <a href="#portraits">Portraits <span>4</span></a>
+      <a href="#architektur">Architektur <span>13</span></a>
+      <a href="#reise">Reise &amp; Landschaft <span>16</span></a>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section id="event">
+    <div class="container">
+      <div class="section-head">
+        <h2>Event-Fotografie</h2>
+        <p>Theateraufführungen, Weihnachts- und Bühnenshows, Konzerte und Feste — Licht, Bühnenbild und gefangene Momente im Dunkeln.</p>
+      </div>
+      <div class="masonry">
+          <figure><img src="assets/img/fotki-02.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-01.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-02.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-03.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-04.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-05.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-06.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-07.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-08.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-09.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-10.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-11.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-12.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-13.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-14.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-15.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-16.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-17.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-18.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-19.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-20.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-21.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-22.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-23.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-24.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-25.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-26.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-27.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-28.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-29.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-30.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-31.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-32.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-33.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-34.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-35.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-36.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-37.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-38.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-39.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-40.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-41.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-42.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-43.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-44.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-45.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-46.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-47.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-48.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-49.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-50.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-51.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-52.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-53.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-54.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-55.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-56.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-57.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-58.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-59.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-60.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-61.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-62.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-63.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-64.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-65.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-66.jpg" alt="Eventfotografie: Bühnenmoment" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="portraits">
+    <div class="container">
+      <div class="section-head">
+        <h2>Portraits</h2>
+        <p>Menschen in natürlichem Licht — entspannt, ehrlich, ohne Inszenierung.</p>
+      </div>
+      <div class="masonry">
+          <figure><img src="assets/img/portfolio-76.jpg" alt="Portrait" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-77.jpg" alt="Portrait" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-78.jpg" alt="Portrait" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-79.jpg" alt="Portrait" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="architektur">
+    <div class="container">
+      <div class="section-head">
+        <h2>Architektur-Fotografie</h2>
+        <p>Kirchen, Paläste, Fassaden und Denkmäler in Minsk, Amsterdam, Paris und deutschen Altstädten.</p>
+      </div>
+      <div class="masonry">
+          <figure><img src="assets/img/fotki-01.jpg" alt="Architekturfotografie" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-03.jpg" alt="Architekturfotografie" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-04.jpg" alt="Architekturfotografie" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-21.jpg" alt="Architekturfotografie" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-22.jpg" alt="Architekturfotografie" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-23.jpg" alt="Architekturfotografie" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-24.jpg" alt="Architekturfotografie" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-25.jpg" alt="Architekturfotografie" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-26.jpg" alt="Architekturfotografie" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-27.jpg" alt="Architekturfotografie" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-28.jpg" alt="Architekturfotografie" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-67.jpg" alt="Architekturfotografie" loading="lazy"></figure>
+          <figure><img src="assets/img/portfolio-68.jpg" alt="Architekturfotografie" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="reise">
+    <div class="container">
+      <div class="section-head">
+        <h2>Reise &amp; Landschaft</h2>
+        <p>Küsten, Meere und Sonnenaufgänge — vor allem entlang der italienischen Riviera.</p>
+      </div>
+      <div class="masonry">
+          <figure><img src="assets/img/fotki-05.jpg" alt="Reise- und Landschaftsaufnahme" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-06.jpg" alt="Reise- und Landschaftsaufnahme" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-07.jpg" alt="Reise- und Landschaftsaufnahme" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-08.jpg" alt="Reise- und Landschaftsaufnahme" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-09.jpg" alt="Reise- und Landschaftsaufnahme" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-10.jpg" alt="Reise- und Landschaftsaufnahme" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-11.jpg" alt="Reise- und Landschaftsaufnahme" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-12.jpg" alt="Reise- und Landschaftsaufnahme" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-13.jpg" alt="Reise- und Landschaftsaufnahme" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-14.jpg" alt="Reise- und Landschaftsaufnahme" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-15.jpg" alt="Reise- und Landschaftsaufnahme" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-16.jpg" alt="Reise- und Landschaftsaufnahme" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-17.jpg" alt="Reise- und Landschaftsaufnahme" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-18.jpg" alt="Reise- und Landschaftsaufnahme" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-19.jpg" alt="Reise- und Landschaftsaufnahme" loading="lazy"></figure>
+          <figure><img src="assets/img/fotki-20.jpg" alt="Reise- und Landschaftsaufnahme" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <span>© 2026 Nikita Kuriliv</span>
+    <span>Design &amp; Fotografie — Portfolio</span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="close" aria-label="Schließen">&times;</button>
+  <img src="" alt="Vergrößerte Ansicht">
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+  document.querySelectorAll('.masonry img').forEach(img => {
+    img.addEventListener('click', () => { lightboxImg.src = img.src; lightbox.classList.add('open'); });
+  });
+  function closeLightbox() { lightbox.classList.remove('open'); lightboxImg.src = ''; }
+  lightbox.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>

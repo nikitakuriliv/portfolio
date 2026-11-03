@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nikita Kuriliv – Portfolio | Social Media Design & Fotografie</title>
+  <meta name="description" content="Portfolio von Nikita Kuriliv – Social-Media-Design, Instagram Ads, animierte Mockups sowie Eventfotografie und Portraits.">
+  <style>
+    :root {
+      --bg: #0b0b0f;
+      --surface: #14141a;
+      --surface-2: #1b1b23;
+      --border: #2a2a35;
+      --text: #f2f2f5;
+      --muted: #a0a0ae;
+      --accent: #d94f6b;
+      --link: #8b7ef5;
+      --accent-solid: #c8405c;
+      --accent-solid-hover: #b7334f;
+      --radius: 14px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    body { font-size: 1rem; }
+    a { color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Nav ---------- */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(11,11,15,.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-weight: 700; font-size: 1.05rem; letter-spacing: .02em; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted); font-size: .92rem;
+      padding: 8px 14px; border-radius: 999px; transition: color .2s, background .2s;
+    }
+    .nav-links a:hover { color: var(--text); background: var(--surface-2); }
+    @media (max-width: 640px) { .nav-links a { padding: 8px 10px; font-size: .82rem; } }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: 88px 0 56px; text-align: center; }
+    .kicker {
+      display: inline-block; font-size: .8rem; font-weight: 600; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--accent);
+      border: 1px solid rgba(217,79,107,.35); padding: 6px 16px; border-radius: 999px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.1; font-weight: 800;
+      letter-spacing: -.02em;
+      background: linear-gradient(120deg, #fff 40%, var(--link));
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero p { max-width: 660px; margin: 20px auto 0; color: var(--muted); font-size: 1.08rem; }
+    .hero .skills {
+      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 28px;
+    }
+    .skill {
+      font-size: .82rem; color: var(--muted);
+      border: 1px solid var(--border); background: var(--surface);
+      padding: 7px 14px; border-radius: 999px;
+    }
+
+    /* ---------- Sections ---------- */
+    section { padding: 72px 0; }
+    .section-head { margin-bottom: 36px; }
+    .section-head h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 800; letter-spacing: -.01em; }
+    .section-head p { color: var(--muted); margin-top: 8px; max-width: 640px; }
+    .band { border-top: 1px solid var(--border); }
+    .band-videos { background: var(--surface); }
+
+    /* ---------- Unterkapitel ---------- */
+    .sub { display: flex; align-items: baseline; gap: 14px; margin: 56px 0 20px; }
+    .sub:first-of-type { margin-top: 8px; }
+    .sub h3 { font-size: 1.15rem; font-weight: 700; }
+    .sub .tag {
+      display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .06em;
+      text-transform: uppercase; color: var(--link); white-space: nowrap;
+    }
+
+    /* ---------- Videos ---------- */
+    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
+    .video-card {
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      transition: transform .25s ease, border-color .25s ease;
+    }
+    .video-card:hover { transform: translateY(-4px); border-color: #3c3c4a; }
+    .video-card video { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; background: #000; }
+    .video-card .meta { padding: 18px 20px; }
+    .video-card h4 { font-size: 1.05rem; font-weight: 700; }
+    .video-card p { color: var(--muted); font-size: .9rem; margin-top: 4px; }
+
+    /* ---------- Gallerien ---------- */
+    .gallery { display: grid; gap: 14px; }
+    .gallery.ads { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+    .gallery.shots { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+    .gallery.screens { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+    .gallery img {
+      display: block; width: 100%; height: 100%; object-fit: cover;
+      border-radius: var(--radius); border: 1px solid var(--border);
+      transition: transform .25s ease, border-color .25s ease;
+      cursor: zoom-in;
+    }
+    .gallery.ads img { aspect-ratio: 1080/1350; }
+    .gallery.shots img { aspect-ratio: 1179/2556; }
+    .gallery.screens img { aspect-ratio: 16/9; }
+    .gallery img:hover { transform: scale(1.02); border-color: #3c3c4a; }
+
+    /* ---------- Fotografie-Masonry ---------- */
+    .masonry { columns: 3; column-gap: 14px; }
+    @media (max-width: 900px) { .masonry { columns: 2; } }
+    @media (max-width: 560px) { .masonry { columns: 1; } }
+    .masonry figure { margin: 0 0 14px; break-inside: avoid; }
+    .masonry img {
+      display: block; width: 100%; height: auto;
+      border-radius: var(--radius); border: 1px solid var(--border);
+      transition: transform .25s ease, border-color .25s ease;
+      cursor: zoom-in;
+    }
+    .masonry img:hover { transform: scale(1.015); border-color: #3c3c4a; }
+
+    /* ---------- Print-Bereich ---------- */
+    .gallery.print2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .gallery.print2 img { aspect-ratio: 4/3; }
+    .gallery.print3 { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+    .gallery.print3 img { aspect-ratio: 3/2; }
+    .gallery.logos { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+    .gallery.logos img { aspect-ratio: 4/3; object-fit: contain; background: #ffffff; padding: 22%; }
+    .note { color: var(--muted); font-size: .88rem; margin-top: 12px; }
+    .pdf-row { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 14px; }
+    .mini-link { color: var(--link); font-size: .88rem; font-weight: 600; text-decoration: none; }
+    .mini-link:hover { text-decoration: underline; }
+
+    /* ---------- Fotografie-Teaser ---------- */
+    .teaser-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    @media (max-width: 900px) { .teaser-grid { grid-template-columns: repeat(2, 1fr); } }
+    .teaser-card { position: relative; display: block; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+    .teaser-card img { display: block; width: 100%; aspect-ratio: 4/5; object-fit: cover; transition: transform .3s ease; }
+    .teaser-card:hover img { transform: scale(1.04); }
+    .teaser-card .cap {
+      position: absolute; left: 10px; right: 10px; bottom: 10px;
+      background: rgba(11,11,15,.82); backdrop-filter: blur(6px);
+      padding: 8px 12px; border-radius: 10px; font-size: .85rem; font-weight: 600;
+    }
+    .cta { margin-top: 26px; }
+
+    /* ---------- Kontaktformular ---------- */
+    .contact-form {
+      max-width: 620px; margin: 0 auto; text-align: left;
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 30px; border-radius: var(--radius);
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .contact .container > p { margin-bottom: 34px; }
+    .contact-form .hp { position: absolute; left: -9999px; opacity: 0; }
+    .contact-form label { font-size: .85rem; color: var(--muted); font-weight: 600; }
+    .contact-form input, .contact-form select, .contact-form textarea {
+      width: 100%; background: var(--surface-2); color: var(--text);
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 12px 14px; font: inherit; outline: none;
+      transition: border-color .2s ease;
+    }
+    .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--link); }
+    .contact-form textarea { resize: vertical; }
+    .contact-form button { align-self: flex-start; border: none; cursor: pointer; margin-top: 10px; }
+    .btn-row { display: flex; gap: 6px; margin-top: 18px; }
+
+    /* ---------- Kontakt ---------- */
+    .contact { text-align: center; padding: 88px 0; }
+    .contact h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -.01em; }
+    .contact p { color: var(--muted); max-width: 560px; margin: 14px auto 32px; }
+    .btn {
+      display: inline-block; text-decoration: none; font-weight: 600;
+      padding: 13px 30px; border-radius: 999px; font-size: .95rem;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary:hover { background: var(--accent-solid-hover); }
+    .btn-primary { background: linear-gradient(120deg, var(--accent), var(--link)); color: #fff; }
+    .btn-ghost { border: 1px solid var(--border); color: var(--muted); margin-left: 10px; }
+    .btn-ghost:hover { color: var(--text); }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 0; color: var(--muted); font-size: .85rem; }
+    footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+    /* ---------- Lightbox ---------- */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 100; display: none;
+      background: rgba(0,0,0,.92); cursor: zoom-out;
+      align-items: center; justify-content: center;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 92vw; max-height: 92vh; border-radius: 8px; object-fit: contain; height: auto !important; }
+    .lightbox .close {
+      position: absolute; top: 20px; right: 28px; font-size: 2rem; color: #fff;
+      background: none; border: none; cursor: pointer; line-height: 1;
+    }
+  
+    /* ---- Typo- & Farbsystem (better-typography / better-colors) ---- */
+    h1, h2, h3, h4 { text-wrap: balance; }
+    p { text-wrap: pretty; }
+    .section-head h2, .contact h2 { line-height: 1.2; }
+    .sub h3, .video-card h4 { line-height: 1.3; }
+    .tag { white-space: nowrap; }
+    ::selection { background: var(--accent-solid); color: #fff; }
+    :is(a, button, input, select, textarea):focus-visible {
+      outline: 2px solid var(--link); outline-offset: 2px; border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">Nikita<span>.</span>Kuriliv</div>
+      <div class="nav-links">
+        <a href="#design">Design</a>
+        <a href="#print">Print</a>
+        <a href="fotografie.html">Fotografie</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="hero">
+      <span class="kicker">Portfolio</span>
+      <h1>Design, der auffällt.<br>Fotografie, der bleibt.</h1>
+      <p>Ich gestalte Social Media für Marken und halte die echten Momente dahinter fest — dieselbe Handschrift, zwei Medien.</p>
+      <div class="skills">
+        <span class="skill">Social-Media-Design</span>
+        <span class="skill">Instagram Ads</span>
+        <span class="skill">Animierte Device-Mockups</span>
+        <span class="skill">Eventfotografie</span>
+        <span class="skill">Portraits</span>
+        <span class="skill">YouTube-Designs</span>
+        <span class="skill">Print &amp; Logo-Design</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="design" class="band">
+    <div class="container">
+      <div class="section-head">
+        <h2>Social-Media-Design</h2>
+        <p>Kampagnen-Motive, In-App-Visuals und animierte Mockups — gestaltet für ein Ziel: den Daumen stoppen.</p>
+      </div>
+
+      <div class="sub"><h3>Animierte Device-Mockups</h3><span class="tag">Video</span></div>
+      <div class="video-grid">
+        <div class="video-card">
+          <video src="assets/video/mockup-instagram.mp4" autoplay muted loop playsinline preload="metadata"></video>
+          <div class="meta">
+            <h4>Instagram Rotato Mockup</h4>
+            <p>Animierter Device-Mockup für Social-Media-Kampagnen.</p>
+          </div>
+        </div>
+        <div class="video-card">
+          <video src="assets/video/mockup-youtube.mp4" autoplay muted loop playsinline preload="metadata"></video>
+          <div class="meta">
+            <h4>YouTube Rotato Mockup</h4>
+            <p>Animierter Device-Mockup für YouTube-Content.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub"><h3>Nefera — Instagram-Ads</h3><span class="tag">Kampagne</span></div>
+      <div class="gallery ads">
+        <img src="assets/img/nefera-post-1.jpg" alt="Nefera Brand Frame" loading="lazy">
+        <img src="assets/img/nefera-post-2.jpg" alt="Nefera Instagram Ad" loading="lazy">
+        <img src="assets/img/nefera-post-3.jpg" alt="Nefera Instagram Ad – Variante 1" loading="lazy">
+        <img src="assets/img/nefera-post-4.jpg" alt="Nefera Instagram Ad – Variante 2" loading="lazy">
+        <img src="assets/img/nefera-post-5.jpg" alt="Nefera Instagram Ad – Variante 3" loading="lazy">
+        <img src="assets/img/nefera-post-6.jpg" alt="Nefera Instagram Ad – Variante 4" loading="lazy">
+        <img src="assets/img/nefera-post-7.jpg" alt="Nefera Instagram Ad – Variante 5" loading="lazy">
+        <img src="assets/img/nefera-insta-1.jpg" alt="Nefera Instagram Post" loading="lazy">
+        <img src="assets/img/nefera-insta-2.jpg" alt="Nefera Instagram Post – Variante 1" loading="lazy">
+        <img src="assets/img/nefera-insta-3.jpg" alt="Nefera Instagram Post – Variante 2" loading="lazy">
+      </div>
+
+      <div class="sub"><h3>In-App-Visuals</h3><span class="tag">Instagram</span></div>
+      <div class="gallery shots">
+        <img src="assets/img/insta-shot-1.jpg" alt="Instagram App-Screenshot 1" loading="lazy">
+        <img src="assets/img/insta-shot-2.jpg" alt="Instagram App-Screenshot 2" loading="lazy">
+        <img src="assets/img/insta-shot-3.jpg" alt="Instagram App-Screenshot 3" loading="lazy">
+        <img src="assets/img/insta-shot-4.jpg" alt="Instagram App-Screenshot 4" loading="lazy">
+        <img src="assets/img/insta-shot-5.jpg" alt="Instagram App-Screenshot 5" loading="lazy">
+      </div>
+
+      <div class="sub"><h3>YouTube-Designs</h3><span class="tag">Desktop</span></div>
+      <div class="gallery screens">
+        <img src="assets/img/screen-1.jpg" alt="YouTube-Design 1" loading="lazy">
+        <img src="assets/img/screen-2.jpg" alt="YouTube-Design 2" loading="lazy">
+        <img src="assets/img/screen-3.jpg" alt="YouTube-Design 3" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section id="print" class="band">
+    <div class="container">
+      <div class="section-head">
+        <h2>Grafikdesign &amp; Print</h2>
+        <p>Von der Broschüre bis zum Logo: Drucksachen, die man gern aufschlägt — konzipiert in InDesign &amp; Illustrator.</p>
+      </div>
+
+      <div class="sub"><h3>Broschüren</h3><span class="tag">InDesign</span></div>
+      <div class="gallery print2">
+        <img src="assets/img/print-brosch-cover.jpg" alt="Broschüre „Design studieren" – Titelseite" loading="lazy">
+        <img src="assets/img/print-brosch-mockup.jpg" alt="Broschüren-Mockup" loading="lazy">
+      </div>
+      <p class="note">16-seitige Broschüre „Design studieren" — Konzept &amp; Layout selbst entworfen. Vollansicht gern auf Anfrage.</p>
+
+      <div class="sub"><h3>Flyer &amp; Plakate</h3><span class="tag">Kampagne MEGA Mietpark</span></div>
+      <div class="gallery print3">
+        <img src="assets/img/print-plakat-lagerraum.jpg" alt="Gewerbeplakat Lagerraum" loading="lazy">
+        <img src="assets/img/print-plakat-grossgarage.jpg" alt="Gewerbeplakat Großgaragen &amp; Lagerräume" loading="lazy">
+        <img src="assets/img/print-plakat-mockup.jpg" alt="Werbeplakat im Stadtraum-Mockup" loading="lazy">
+      </div>
+      <div class="pdf-row">
+        <a class="mini-link" href="assets/pdf/plakat-lagerraum-quer.pdf" target="_blank" rel="noopener">Plakat Lagerraum als PDF &nearr;</a>
+        <a class="mini-link" href="assets/pdf/plakat-grossgarage-lagerraeume.pdf" target="_blank" rel="noopener">Plakat Großgaragen als PDF &nearr;</a>
+      </div>
+
+      <div class="sub"><h3>Geschäftsausstattung</h3><span class="tag">Visitenkarte · Schild · Etiketten</span></div>
+      <div class="gallery print3">
+        <img src="assets/img/print-visitenkarte.jpg" alt="Visitenkarte – Entwurf" loading="lazy">
+        <img src="assets/img/print-postkarte.jpg" alt="Postkarte – Entwurf" loading="lazy">
+        <img src="assets/img/print-schild.jpg" alt="Orn e-Schild im Außenbereich, MEGA Mietpark" loading="lazy">
+      </div>
+      <div class="pdf-row">
+        <a class="mini-link" href="assets/pdf/etiketten-nefera.pdf" target="_blank" rel="noopener">Etiketten Nefera als PDF &nearr;</a>
+      </div>
+
+      <div class="sub"><h3>Logos</h3><span class="tag">Branding</span></div>
+      <div class="gallery logos">
+        <img src="assets/img/print-logo-nefera.jpg" alt="Nefera Logo" loading="lazy">
+        <img src="assets/img/print-logo-nefera-2.jpg" alt="Nefera Logo – Ausarbeitung" loading="lazy">
+        <img src="assets/img/print-logo-mietpark.svg" alt="Mietpark Logo (SVG)" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section id="fotografie" class="band band-videos">
+    <div class="container">
+      <div class="section-head">
+        <h2>Fotografie</h2>
+        <p>Vier Blickwinkel, eine Handschrift — Bühne, Menschen, Gebäude und Landschaften auf einer eigenen Galerie.</p>
+      </div>
+      <div class="teaser-grid">
+        <a class="teaser-card" href="fotografie.html#event">
+          <img src="assets/img/portfolio-05.jpg" alt="Event-Fotografie Vorschau" loading="lazy">
+          <span class="cap">Event-Fotografie</span>
+        </a>
+        <a class="teaser-card" href="fotografie.html#portraits">
+          <img src="assets/img/portfolio-77.jpg" alt="Portraits Vorschau" loading="lazy">
+          <span class="cap">Portraits</span>
+        </a>
+        <a class="teaser-card" href="fotografie.html#architektur">
+          <img src="assets/img/fotki-03.jpg" alt="Architektur-Fotografie Vorschau" loading="lazy">
+          <span class="cap">Architektur-Fotografie</span>
+        </a>
+        <a class="teaser-card" href="fotografie.html#reise">
+          <img src="assets/img/fotki-08.jpg" alt="Reise &amp; Landschaft Vorschau" loading="lazy">
+          <span class="cap">Reise &amp; Landschaft</span>
+        </a>
+      </div>
+      <div class="cta"><a class="btn btn-primary" href="fotografie.html">Alle Fotos ansehen &rarr;</a></div>
+    </div>
+  </section>
+
+  <section class="contact" id="kontakt">
+    <div class="container">
+      <h2>Lass uns zusammenarbeiten.</h2>
+      <p>Du brauchst Ads, Mockups, Social-Media-Visuals oder Fotografie für dein Event? Schreib mir direkt über das Formular — ich antworte schnell.</p>
+      <form name="kontakt" method="POST" action="/danke.html" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+        <input type="hidden" name="form-name" value="kontakt">
+        <p class="hp"><label>Nicht ausfüllen: <input name="bot-field"></label></p>
+        <label for="kf-name">Name</label>
+        <input id="kf-name" type="text" name="name" required autocomplete="name" placeholder="Dein Name">
+        <label for="kf-email">E-Mail</label>
+        <input id="kf-email" type="email" name="email" required autocomplete="email" placeholder="name@example.com">
+        <label for="kf-thema">Worum geht's?</label>
+        <select id="kf-thema" name="thema">
+          <option value="Social-Media-Design">Social-Media-Design / Ads</option>
+          <option value="Videos / Mockups">Videos / Device-Mockups</option>
+          <option value="Fotografie: Event">Fotografie: Event</option>
+          <option value="Fotografie: Portrait">Fotografie: Portrait</option>
+          <option value="Fotografie: Architektur">Fotografie: Architektur</option>
+          <option value="Print &amp; Grafikdesign">Print &amp; Grafikdesign (Flyer, Broschüre, Logo)</option>
+          <option value="Sonstiges">Sonstiges</option>
+        </select>
+        <label for="kf-nachricht">Nachricht</label>
+        <textarea id="kf-nachricht" name="message" rows="5" required placeholder="Erzähl mir kurz von deinem Projekt oder Termin …"></textarea>
+        <button class="btn btn-primary" type="submit">Nachricht senden</button>
+        <div class="btn-row">
+          <!-- TODO: E-Mail und Instagram-Links hier eintragen -->
+          <a class="btn btn-ghost" href="mailto:dein-email@example.com">E-Mail</a>
+          <a class="btn btn-ghost" href="#" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <span>© 2026 Nikita Kuriliv</span>
+    <span>Design & Fotografie — Portfolio</span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="close" aria-label="Schließen">&times;</button>
+  <img src="" alt="Vergrößerte Ansicht">
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+  document.querySelectorAll('.gallery img, .masonry img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.classList.add('open');
+    });
+  });
+  function closeLightbox() { lightbox.classList.remove('open'); lightboxImg.src = ''; }
+  lightbox.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danke! – Nikita Kuriliv</title>
+  <style>
+    :root { --bg:#0b0b0f; --text:#f2f2f5; --muted:#a0a0ae; --accent:#d94f6b; --link:#8b7ef5; --accent-solid:#c8405c; --accent-solid-hover:#b7334f; --border:#2a2a35; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:24px; }
+    h1 { font-size:clamp(1.8rem,5vw,3rem); background:linear-gradient(120deg,#fff 40%,var(--link)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    p { color:var(--muted); margin:18px 0 30px; }
+    a.btn { display:inline-block; text-decoration:none; font-weight:600; padding:13px 30px; border-radius:999px; background:linear-gradient(120deg,var(--accent),var(--link)); color:#fff; }
+    .check { font-size:3rem; }
+  
+    /* ---- Typo- & Farbsystem (better-typography / better-colors) ---- */
+    h1, h2, h3, h4 { text-wrap: balance; }
+    p { text-wrap: pretty; }
+    .section-head h2, .contact h2 { line-height: 1.2; }
+    .sub h3, .video-card h4 { line-height: 1.3; }
+    .tag { white-space: nowrap; }
+    ::selection { background: var(--accent-solid); color: #fff; }
+    :is(a, button, input, select, textarea):focus-visible {
+      outline: 2px solid var(--link); outline-offset: 2px; border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="check">✉️</div>
+    <h1> Nachricht ist raus!</h1>
+    <p>Danke für deine Nachricht — ich melde mich in Kürze bei dir.</p>
+    <a class="btn" href="index.html">Zurück zum Portfolio</a>
+  </main>
+</body>
+</html>
